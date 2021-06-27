@@ -1,0 +1,9 @@
+SELECT
+	PRODUCT.ProductID,
+	PRODUCT.Name
+FROM (SELECT DISTINCT
+    ProductID, 
+	Name
+FROM Production.Product) PRODUCT, Sales.SalesOrderDetail DETAIL
+WHERE PRODUCT.ProductID = DETAIL.ProductID 
+OR PRODUCT.rowguid = DETAIL.rowguid;
