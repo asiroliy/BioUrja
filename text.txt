@@ -3,7 +3,8 @@ SELECT
 	PRODUCT.Name
 FROM (SELECT DISTINCT
     ProductID, 
-	Name
+	Name,
+	rowguid
 FROM Production.Product) PRODUCT, Sales.SalesOrderDetail DETAIL
 WHERE PRODUCT.ProductID = DETAIL.ProductID 
 OR PRODUCT.rowguid = DETAIL.rowguid;
